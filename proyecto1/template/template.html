@@ -1,0 +1,26 @@
+<html5>
+    <body>
+        <h1 style="color:blueviolet">Holaa primera vista web con plantilla</h1>
+        {# comentario#}
+        {% if nombre == "Albert" %}
+            <p> Soy yoo</p>
+        {% else %}
+            <p> No soy yoo</p>
+        {% endif %}
+
+        <p> El nombre es: {{nombre}} El apellido es: {{apellido.upper}}</p>
+        <p>La fecha de Hoy: {{fecha}}</p>
+        <p><strong> Cargos en lista </strong></p>
+        {# | es filtro #}
+        <p>
+            {% if cargos %}
+                {% for carg in cargos %}
+                    <p> {{carg|first|upper}} </p>
+
+                {% endfor %}    
+            {% else %}
+                <p> No hay elemntosen la lista </p>
+            {% endif %}
+        </p>
+    </body>
+</html5>
