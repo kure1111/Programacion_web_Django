@@ -1,9 +1,10 @@
 from multiprocessing import context
-from unittest import loader
+from urllib import request
 from django.http import HttpResponse
 import datetime as time
 from django.template import Template, Context, loader
 from django.template.loader import get_template
+from django.shortcuts import render
 #primera vista
 
 class person(object):
@@ -11,22 +12,19 @@ class person(object):
         self.nombre = nombre
         self.apellido = apellido
 
-def Hola(HttpRequest):
+def Hola(request):
     p1 = person("Albert", "Garciaaaaaaaaaaa")
     fechita = time.datetime.now()
     cargo = ["director", "agente", "panadero"]
-    #importante 3 pasos Template, Context, render 
-    #doc_externo = open("C:/Users/kure/Documents/Git_proco/Django/proyecto1/proyecto1/template/template.html")
-    #plt = Template(doc_externo.read())
-    #doc_externo = loader.get_template('template.html')
-    doc_externo = get_template('template.html')
-    #llamamos la clave del diccionario en plantilla para acceder a la info
-    #ctx = Context({"nombre":p1.nombre, "apellido":p1.apellido, "fecha":fechita, "cargos":cargo})
-    #doc_externo.close()
-    dicci = {"nombre":p1.nombre, "apellido":p1.apellido, "fecha":fechita, "cargos":cargo}
-    documento = doc_externo.render(dicci) 
 
-    return HttpResponse(documento)
+    #doc_externo = get_template('template.html')
+    dicci = {"nombre":p1.nombre, "apellido":p1.apellido, "fecha":fechita, "cargos":cargo}
+    #documento = doc_externo.render(dicci) 
+
+    return render(request,
+        'template.html',
+        context=dicci)
+
 
 #Vista 2
 def Despedida(HRequest): 
@@ -57,3 +55,4 @@ def suma(request, a, b):
     </html5>""" % (a, b, c)
 
     return HttpResponse(documento)
+
