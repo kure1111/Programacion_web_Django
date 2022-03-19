@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>
+        {% block title %}
+        
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+    {% include "superior/barra.html" %}
+    <h1> Comun en todas las paginas</h1>
+    <h3> contenidos de cargos</h3>
+    {% block content %}
+    
+    {% endblock%}
+
+    <p> Pie de pagina  </p>
+    
+</body>
+</html>

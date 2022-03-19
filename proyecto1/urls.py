@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from proyecto1.views import Hola, Despedida, fecha, suma
+from proyecto1.views import Hola, Despedida, fecha, suma, contenido, contenido2
 
 #path("nombre_url_saludo/", las vista que saldra)
 urlpatterns = [
@@ -23,5 +23,8 @@ urlpatterns = [
     path("hola/", Hola),
     path('despedida/', Despedida),
     path('fecha/', fecha),
+    path('contenido/', contenido),
+    path('contenido2/', contenido2),
     path('suma/<int:a>/<int:b>', suma)
+
 ]

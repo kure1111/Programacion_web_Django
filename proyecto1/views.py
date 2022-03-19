@@ -2,7 +2,7 @@ from multiprocessing import context
 from urllib import request
 from django.http import HttpResponse
 import datetime as time
-from django.template import Template, Context, loader
+#from django.template import Template, Context, loader
 from django.template.loader import get_template
 from django.shortcuts import render
 #primera vista
@@ -56,3 +56,10 @@ def suma(request, a, b):
 
     return HttpResponse(documento)
 
+def contenido(request):
+    fecha_hoy = time.datetime.now()
+    return render(request, "contenido.html", {"fecha":fecha_hoy})
+
+def contenido2(request):
+    fecha_hoy = time.datetime.now()
+    return render(request, "contenido2.html", {"fecha":fecha_hoy})
